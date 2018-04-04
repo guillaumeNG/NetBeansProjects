@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.ConversionControlller">
+   <children>
+      <Label layoutX="63.0" layoutY="22.0" prefHeight="17.0" prefWidth="92.0" text="Montant :  €" />
+      <Label layoutX="63.0" layoutY="166.0" prefHeight="26.0" prefWidth="75.0" text=" Montant  : $" />
+      <Button layoutX="64.0" layoutY="103.0" mnemonicParsing="false" onAction="#Conversion" prefHeight="51.0" prefWidth="149.0" text="Convertir" />
+      <TextField fx:id="montantEuros" layoutX="64.0" layoutY="53.0" />
+      <TextField fx:id="montantDollars" layoutX="64.0" layoutY="200.0" />
+   </children>
+</AnchorPane>

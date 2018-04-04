@@ -19,7 +19,7 @@ public class CompteSicav extends CompteEpargne{
     public boolean deposerArgent(int montant) {
         //droits d'entrée de 5
         montant -= 5;
-        return super.deposerArgent(montant); //To change body of generated methods, choose Tools | Templates.
+        return super.deposerArgent(montant); 
     }
     
     
