@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafximc.ImcController">
+   <children>
+      <Label  layoutX="106.0" layoutY="77.0" prefHeight="23.0" prefWidth="80.0" text="Masse en kg" />
+      <Label  layoutX="96.0" layoutY="135.0" prefHeight="17.0" prefWidth="100.0" text="Taille en mètres" />
+      <TextField fx:id="masse" layoutX="226.0" layoutY="76.0" />
+      <TextField fx:id="taille" layoutX="226.0" layoutY="131.0" />
+      <Button layoutX="226.0" layoutY="180.0" mnemonicParsing="false" onAction="#onCalculIMC" prefHeight="25.0" prefWidth="149.0" text="Calculer" />
+      <Label layoutX="249.0" prefHeight="44.0" prefWidth="126.0" text="Calcul de l'iIMC" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Label fx:id="resultat" layoutX="94.0" layoutY="254.0" prefHeight="90.0" prefWidth="282.0" />
+   </children>
+</AnchorPane>
