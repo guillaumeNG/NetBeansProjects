@@ -47,7 +47,7 @@ public class PaysDbManager {
 
         // tant qu'non est pas à la fin.
         while (rs.next()) {
-           
+
             sb.append(rs.getString("id_pays"));
             sb.append(" : ");
             sb.append(rs.getString("nom_pays"));
@@ -58,7 +58,7 @@ public class PaysDbManager {
     }
 
     public List<PaysDTO> listeDesPaysPourListview() throws SQLException {
-    
+
         String sql = "SELECT * FROM pays";
         Statement stm = cn.createStatement();
         ResultSet rs = stm.executeQuery(sql);
@@ -77,17 +77,27 @@ public class PaysDbManager {
         }
         return liste;
     }
-    
-    public void supprimer(PaysDTO pays) throws SQLException{
-       String sql = "DELETE FROM pays WHERE id_pays = ? ";
-       
-       PreparedStatement stm =cn.prepareStatement(sql);
-       stm.setInt(1, pays.getId());
-       stm.executeUpdate();
-       
+
+    public void supprimer(PaysDTO pays) throws SQLException {
+        String sql = "DELETE FROM pays WHERE id_pays = ? ";
+
+        PreparedStatement stm = cn.prepareStatement(sql);
+        stm.setInt(1, pays.getId());
+        stm.executeUpdate();
+
+    }//Fin methode supprimer
+
+    public void modif(PaysDTO pays) throws SQLException {
+        String sql = "UPDATE pays SET nom_pays = ? WHERE id_pays = ?";
+        //notre requette préparée
+        PreparedStatement stm = cn.prepareStatement(sql);
+        //passage des paramètres
+        stm.setString(1, pays.getNom());
+        stm.setInt(2, pays.getId());
         
-        
-    }
-    
+        stm.executeUpdate();
+
+    }//Fin methode modif 
+
 }//Fin classe PaysDbManager
 

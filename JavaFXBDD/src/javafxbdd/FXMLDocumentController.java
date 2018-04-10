@@ -57,21 +57,35 @@ public class FXMLDocumentController implements Initializable {
         String nomPays = paysTextField.getText();
 
         try {
-            //...création d'une instance de PaysManager
+            if (paysSelectionne == null) {
 
-            //...Execution de la methode d'insertion
-            manager.insert(nomPays);
+                //...Execution de la methode d'insertion
+                manager.insert(nomPays);
+                //...Message de succès
+                resultat.setText("insertion réussie !");
+            } else {
+                //Execution de la methode de modification
+                //modfication de paysDTO en fonction de la saisie de l'utilisateur
+                paysSelectionne.setNom(nomPays);
+                manager.modif(paysSelectionne);
+
+                //Message de succès
+                resultat.setText("modification OK !");
+
+                //désactiver la selection
+                paysSelectionne = null;
+            }
+
+            //vider le champs texte
+            paysTextField.setText("");
 
             afficheListePays();
-
-            //...Message de succès
-            resultat.setText("insertion réussie !");
 
         } catch (SQLException ex) {
 
             //...Message d'erreur en cas d'Echec
             resultat.setText("impossible d'inserer un nouveau pays !");
-//            System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
 
         }
     }//Fin methode onValider
@@ -138,6 +152,7 @@ public class FXMLDocumentController implements Initializable {
                     if (newValue != null) {
                         System.out.println(newValue.getNom());
                         paysSelectionne = newValue;
+                        paysTextField.setText(newValue.getNom());
                     }
                 }
 
