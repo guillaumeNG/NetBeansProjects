@@ -55,8 +55,20 @@ public class FXMLDocumentController implements Initializable {
     private void onValider(ActionEvent event) {
         //récupération de la saisie de l'ustilisateur
         String nomPays = paysTextField.getText();
+        //Validation de la saisie
+        if (nomPays.trim().equals("")){
+             Alert warning = new Alert(AlertType.WARNING);
+        warning.setTitle("Attention opération délicate");
+        warning.setHeaderText("voulez vous vraiment soumettre un champs vide ? ");
+        warning.setContentText("cette opération est impossible !!!");
+
+        warning.show();
+
+            return;
+        }
 
         try {
+            
             if (paysSelectionne == null) {
 
                 //...Execution de la methode d'insertion
