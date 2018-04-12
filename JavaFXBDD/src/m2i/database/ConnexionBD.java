@@ -54,10 +54,10 @@ public class ConnexionBD {
           //...Constitution de la chaine de connexion à partir des propriétés
           sb.append("jdbc:mysql://");
           sb.append(prop.getProperty("serveur").toString());
-          sb.append(" : ");
+          sb.append(":");
             sb.append(prop.getProperty("port").toString());
-          sb.append(" / ");
-          sb.append(prop.getProperty("bd").toString());
+          sb.append("/");
+          sb.append(prop.getProperty("bdd").toString());
           
           return sb.toString();
           
