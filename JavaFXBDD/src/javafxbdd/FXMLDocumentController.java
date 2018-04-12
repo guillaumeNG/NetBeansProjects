@@ -5,6 +5,7 @@
  */
 package javafxbdd;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Observable;
@@ -19,7 +20,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -28,6 +32,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import m2i.database.ConnexionBD;
 import m2i.database.PaysDTO;
 import m2i.database.PaysDbManager;
@@ -46,6 +52,9 @@ public class FXMLDocumentController implements Initializable {
     private Label resultat;
     @FXML
     private ListView<PaysDTO> paysListView;
+    @FXML
+    private AnchorPane rootPane;
+    
 
     private PaysDbManager manager;
 
@@ -175,5 +184,15 @@ public class FXMLDocumentController implements Initializable {
                     .getName()).log(Level.SEVERE, null, ex);
         }
     }//Fin methode initialize
+    
+    @FXML
+    private void onOuvrirProperties(ActionEvent event) throws IOException{
+        Stage stage =(Stage) rootPane.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("property.fxml"));
+      stage.setScene(new Scene(root));
+      stage.setTitle("Properties");
+      stage.show();
+      
+    }
 
 }//Fin Classe FXMLDOC
